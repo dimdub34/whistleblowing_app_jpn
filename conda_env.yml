@@ -1,4 +1,4 @@
-name: otree5
+name: otreeEnv
 channels:
   - defaults
   - conda-forge
@@ -77,4 +77,4 @@ dependencies:
       - ws4py==0.6.0
       - wtforms==2.3.3
       - wtforms-sqlalchemy==0.2
-prefix: /home/dimitri/anaconda3/envs/otree5
+prefix: /home/dimitri/anaconda3/envs/otreeEnv
