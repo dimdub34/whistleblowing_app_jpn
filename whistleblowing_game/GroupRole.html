@@ -1,12 +1,12 @@
 {{ block title }}
-Part 2: Information about your group
+パート2：あなたのグループに関する情報
 {{ endblock }}
 
 {{ block content }}
 
 <div class="text-end mb-3">
     <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal_content">
-        Instructions
+        説明
     </button>
 </div>
 
@@ -14,16 +14,16 @@ Part 2: Information about your group
     <div class="card-body">
         <p>
             {{ if group.active }}
-            Your group have been randomly assigned to an <b>Active Group</b>.
-            As a reminder, in each active group, players are assigned the following roles: One Red Player, and Two Blue
-            Players. You have been randomly assigned to the role of
+            あなたのグループはランダムに<b>アクティブグループ</b>に割り当てられました。
+            もう一度説明すると、アクティブグループでは次の役割が割り当てられます：レッドプレイヤー1名、ブループレイヤー2名。
+            あなたはランダムに
             {{ if player.taker }}
-            <b>Red Player</b>.
+            <b>レッドプレイヤー</b>。
             {{ else }}
-            <b>Blue Player</b>.
+            <b>ブループレイヤー</b>。
             {{ endif }}
             {{ else }}
-            Your group have been randomly assigned to an <b>Inactive Group</b>.
+            あなたのグループはランダムに<b>パッシブグループ</b>に割り当てられました。
             {{ endif }}
         </p>
     </div>
