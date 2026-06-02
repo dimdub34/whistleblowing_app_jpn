@@ -1,35 +1,35 @@
 <article>
     <p>
-        In this task, during {{ effort_duration }} you will be asked to <b>adjust sliders to a
-        specific target value</b>. Select one of the {{ NUM_SLIDERS }} buttons and move the cursor to the target
-        value. Once done click the <i>Validate</i> button.
-        The button of the corresponding slider will turn orange to indicate that you have already adjusted it.
-        Then select a new button and repeat the process.
+        このタスクでは、{{ effort_duration }} の間に<b>スライダーを特定の目標値に合わせる</b>ことを行っていただきます。
+        {{ NUM_SLIDERS }} 個のボタンのいずれかを選択し、カーソルを目標値まで動かしてください。
+        完了したら <i>確定</i> ボタンをクリックします。
+        調整済みのスライダーに対応するボタンはオレンジ色に変わり、すでに調整済みであることが示されます。
+        その後、新しいボタンを選択し、同じ手順を繰り返してください。
     </p>
 
     {{ if subsession.treatment == INDIVIDUAL }}
     <p>
-        <b>Your earnings depend solely on your own performance</b> in the task and do not
-        depend on the performance of the other group members.
-        For each correctly positioned slider, your gain will increase by {{ PIECE_RATE }} ECU.
-        If the slider is incorrectly positioned, your gain will remain unchanged.
+        <b>あなたの報酬は、このタスクにおけるあなた自身の成績のみに基づきます。</b>
+        他の参加者の成績は影響しません。
+        正しく調整されたスライダー1つにつき、あなたの報酬は {{ PIECE_RATE }} ECU 増えます。
+        誤った位置に調整された場合、報酬は変わりません。
     </p>
 
     {{ elif subsession.treatment == COOPERATION }}
     <p>
-        <b>Your earnings in this task will depend on the best scorer in the group.</b>
-        The best scorer in the group is the group member who has correctly positioned the most sliders. For each slider
-        that the best scorer completed, each group member will receive {{ PIECE_RATE }} ECU. Therefore, this means
-        that the better your group members do on the task, the more you can earn.
+        <b>このタスクでのあなたの報酬は、グループ内で最も多くのスライダーを正しく調整した参加者（ベストスコアラー）に基づきます。</b>
+        ベストスコアラーが正しく調整したスライダー1つにつき、グループ全員が {{ PIECE_RATE }} ECU を受け取ります。
+        つまり、グループメンバーの成績が良いほど、あなたの報酬も増えます。
+
     </p>
     {{ endif }}
     <p>
-        <b>You can do as many sliders as you want during the {{ effort_duration }} allocated to you.</b> <br>
-        You will be informed of your earnings for this task only at the end of the experiment.
+        <b>{{ effort_duration }} の間、あなたは好きなだけ多くのスライダーに取り組むことができます。</b> <br>
+        このタスクでの報酬は、実験の最後にまとめてお知らせします。
     </p>
     <figure class="text-center">
-        <figcaption class="fst-italic text-muted fw-bold text-center">Screenshot: orange buttons are sliders already
-            moved and validated.
+        <figcaption class="fst-italic text-muted fw-bold text-center">スクリーンショット：オレンジ色のボタンは、すでに動かして確定したスライダーです。
+            
         </figcaption>
         <img class="img-thumbnail mx-auto" alt="screenshot"
              src="{{ static 'whistleblowing_sliders/screenshot_en.png' }}">
