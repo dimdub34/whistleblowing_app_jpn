@@ -7,7 +7,7 @@
 </style>
 {{ endblock }}
 {{ block title }}
-Task 3: Guessing stage
+タスク3：推測ステージ
 {{ endblock }}
 
 {{ block content }}
@@ -16,14 +16,14 @@ Task 3: Guessing stage
     <div class="card-body">
         {{ if subsession.treatment == INDIVIDUAL }}
         <p>
-            You have now completed Task 3. Before proceeding to Part 2, please tell us your guess about the number of
-            sliders you successfully moved at the right place in Task 3.
+            タスク3が終了しました。パート2に進む前に、タスク3であなたが正しい位置に動かすことができたスライダーの数について推測を教えてください。
+
         </p>
 
         {{ elif subsession.treatment == COOPERATION }}
         <p>
-            You have now completed Task 3. Before proceeding to part 2, please tell us your guess about the number of
-            sliders the best scorer in your group has successfully moved at the right place in Task 3.
+            タスク3が終了しました。パート2に進む前に、タスク3であなたのグループ内で最も多くのスライダーを正しい位置に動かした人の数について推測を教えてください。
+
         </p>
         {{ endif }}
     </div>
