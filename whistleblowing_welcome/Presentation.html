@@ -1,5 +1,5 @@
 {{ block title }}
-Presentation of the experiment
+実験の概要
 {{ endblock }}
 
 {{ block content }}
@@ -8,18 +8,18 @@ Presentation of the experiment
     <div class="card-body">
         <article lang="en">
             <p>
-                Your gain during the experiment will be expressed in Experimental Currency Units (ECU).
-                However, the amount that you will collect at the end of the experiment will be paid in real currency,
-                with
-                the exchange rate of <b>1 ECU = {{ session.config.real_world_currency_per_point|cu }}</b>.
+                実験中のあなたの報酬は「実験通貨単位（ECU）」で表示されます。
+                ただし、実験終了時に受け取る金額は実際の通貨で支払われ、
+                交換レートは <b>1 ECU = {{ session.config.real_world_currency_per_point|cu }}</b> です。
+
             </p>
             <p>
-                This experiment is composed of several parts. You will receive detailed instructions at the beginning of
-                each part.
+                この実験はいくつかのパートで構成されています。各パートの開始時に、詳細な説明が提示されます。
+
             </p>
             <p>
-                You will initially have an <b>endowment of {{ C.ENDOWMENT }} ECU</b>.
-                Your earnings from the different parts of the experiment will be added to this initial endowment.
+                あなたには最初に<b>{{ C.ENDOWMENT }} ECU の初期保有額</b>が与えられます。
+                実験の各パートで得られた報酬は、この初期保有額に加算されます。
             </p>
         </article>
     </div>
