@@ -1,36 +1,36 @@
 <article>
     <p>
-        For this task, during {{ effort_duration }}, you will be asked to <b>solve a series of
-        addition problems</b>.
-        You will be offered {{ NUM_OPERATIONS }} operations. Each operation contains an addition problem.
-        You first need to <b>select one of the operations</b> and then enter your response in the input box below the
-        operation, then click the <i>Validate</i> button.
-        The button of the corresponding operation will then turn orange to indicate that you have already solved it.
-        Then select a new operation and repeat the process.
+        このタスクでは、{{ effort_duration }} の間に<b>一連の加算問題を解く</b>ことをお願いしています。
+        合計で {{ NUM_OPERATIONS }} 個の問題が提示されます。各問題には加算式が1つ含まれています。
+        まず、<b>いずれかの問題を選択</b>し、その下の入力欄に答えを入力して、<i>確定</i>ボタンをクリックしてください。
+        解いた問題のボタンはオレンジ色に変わり、すでに解答済みであることが示されます。
+        その後、新しい問題を選択し、同じ手順を繰り返してください。
+
+        
     </p>
     {{ if subsession.treatment == INDIVIDUAL }}
     <p>
-        <b>Your earnings depend solely on your own performance</b> in the task and do not depend on the performance of
-        the other group members.
-        If the entered number is correct, your gain will increase by {{ PIECE_RATE }} ECU. If it is incorrect, your
-        gain will remain unchanged.
+        <b>あなたの報酬は、このタスクにおけるあなた自身の成績のみに基づきます。</b>
+        他の参加者の成績は影響しません。
+        入力した答えが正しければ、あなたの報酬は {{ PIECE_RATE }} ECU 増えます。
+        間違っている場合、報酬は変わりません。
     </p>
     {{ elif subsession.treatment == COOPERATION }}
     <p>
-        <b>Your earnings in this task will depend on the best scorer in the group.</b>
-        The best scorer in the group is the group member who has successfully completed the most operations. For each
-        operation that the best scorer resolved, each group member will receive {{ PIECE_RATE }} ECU. Therefore, this
-        means that the better your group members do on the task, the more you can earn.
+        <b>このタスクでのあなたの報酬は、グループ内で最も多くの問題を正しく解いた参加者（ベストスコアラー）に基づきます。</b>
+        ベストスコアラーとは、最も多くの問題を正しく解いた参加者です。
+        ベストスコアラーが解いた問題1つにつき、グループ全員が {{ PIECE_RATE }} ECU を受け取ります。
+        つまり、グループメンバーの成績が良いほど、あなたの報酬も増えます。
     </p>
     {{ endif }}
     <p>
-        <b>You can do as many operations as you want during the {{ effort_duration }} that are allocated to you.</b>
+        <b>{{ effort_duration }} の間、あなたは好きなだけ多くの問題に取り組むことができます。</b>
         <br>
-        You will be informed of your earnings for this task only at the end of the experiment.
+        このタスクでの報酬は、実験の最後にまとめてお知らせします。
     </p>
     <figure class="text-center">
-        <figcaption class="fst-italic text-muted fw-bold text-center">Screenshot: orange cells are operations already
-            calculated.
+        <figcaption class="fst-italic text-muted fw-bold text-center">スクリーンショット：オレンジ色のセルはすでに解答済みの問題です。
+
         </figcaption>
         <img class="img-thumbnail mx-auto" alt="screenshot" src="{{ static 'whistleblowing_maths/screenshot_en.png' }}">
     </figure>
