@@ -4,7 +4,7 @@
 {{ endblock }}
 {{ block title }}
 <div class="text-center mb-4">
-    End of questionnaire
+    アンケート終了
 </div>
 {{ endblock }}
 {{ block content }}
@@ -17,17 +17,17 @@
                     <i class="bi bi-arrow-return-left"></i>
                 </div>
                 <p class="text-muted">
-                    You have chosen not to participate in the questionnaire.
+                    アンケートへの参加を辞退しました。
                 </p>
                 {{ else }}
                 <div class="text-success mb-4" style="font-size: 3rem;">
                     <i class="bi bi-check-circle"></i>
                 </div>
                 <p class="lead">
-                    Thank you for participating in this questionnaire!
+                    アンケートへのご参加ありがとうございました！
                 </p>
                 <p class="text-muted small mt-3 mb-4">
-                    Your answers have been successfully recorded.
+                    ご回答は正常に記録されました。
                 </p>
                 <p>
                 {{ participant.vars.climate_questionnaire.txt_final|safe }}
