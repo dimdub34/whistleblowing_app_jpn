@@ -60,7 +60,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     maths_performance = models.IntegerField()
-    maths_estimation = models.IntegerField(label="Your guess:", min=0, max=100)
+    maths_estimation = models.IntegerField(label="あなたの予想：", min=0, max=100)
     payoff_ecu = models.FloatField()
 
     def set_txt_final(self):
