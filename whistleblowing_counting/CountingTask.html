@@ -3,21 +3,21 @@
 {{ endblock }}
 
 {{ block title }}
-Task 1: Counting 1's
+タスク1：1の数を数える
 {{ endblock }}
 
 {{ block content }}
 <div class="text-end mb-3">
     <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal_content">
-        Instructions
+        説明
     </button>
 </div>
 
 <div class="card bg-light mb-3">
     <div class="card-body">
         <p>
-            Select a grid by clicking on the corresponding button, count the number of 1's in
-            the grid, enter the value in the input widget and click on "Validate". Then click on another grid.
+            対応するボタンをクリックしてグリッドを選択し、グリッド内の「1」の数を数えて入力欄に記入し、「確定」をクリックしてください。その後、別のグリッドをクリックしてください。
+
         </p>
     </div>
 </div>
@@ -36,7 +36,7 @@ Task 1: Counting 1's
 
 <div class="text-center">
     <h6 class="text-info">
-        Grid
+        グリッド
         <span id="grid_number">1</span></h6>
     <table class=" text-center mb-2 mx-auto">
         {{ for i in loop_rows }}
@@ -51,12 +51,12 @@ Task 1: Counting 1's
     </table>
     <div class="form-group form-inline text-center mb-3">
         <label for="grid_count">
-            Number of 1 in the grid:
+            グリッド内の1の数：
         </label>
         <input type="number" class="form-control-sm text-center" name="grid_count" id="grid_count"
                style="width: 80px">&nbsp;
         <button type="button" class="btn btn-primary" id="btn_validate" onclick="validate();">
-            Validate
+            確定
         </button>
     </div>
 </div>
