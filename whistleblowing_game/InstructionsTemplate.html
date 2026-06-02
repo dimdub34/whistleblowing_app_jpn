@@ -1,146 +1,147 @@
 <section lang="en">
     <article class="mb-4" data-description="intro">
-        <p><b>The composition of the groups is identical</b> to that of Part 1. </p>
+        <p><b>グループの構成はパート1と同じです。</b></p>
         <p>
-            The computer program will randomly select one group from
-            all groups in this room. This group will be referred to as the <b><i>Passive</i></b> group.
-            The remaining groups will be referred to as the <b><i>Active</i></b> groups.
+            コンピュータプログラムは、この部屋にいるすべてのグループの中からランダムに1つのグループを選びます。
+            このグループは<b><i>パッシブ</i></b>グループと呼ばれます。
+            残りのグループは<b><i>アクティブ</i></b>グループと呼ばれます。
         </p>
         <p>
-            The final individual gains for members of the <i>Passive</i> group will depend on their Part 1 gains and the
-            decisions made by members of the <i>Active</i> groups in Part 2.
-            Since members of the <i>Passive</i> group will not make any active
-            decisions in this part, the instructions below are specifically for members of the <i>Active</i> groups.
+            <i>パッシブ</i>グループのメンバーの最終的な個人報酬は、パート1での報酬と、パート2で<i>アクティブ</i>グループのメンバーが行う決定によって決まります。
+            <i>パッシブ</i>グループのメンバーはこのパートで意思決定を行わないため、以下の説明は<i>アクティブ</i>グループのメンバー向けです。
+
+
             <br>
-            Once all participants have read these instructions, you will be informed <b>whether you are in the
-            <i>Passive</i> group or one of the <i>Active</i> groups</b>.
+            全員が説明を読み終えると、あなたが<b><i>パッシブ</i>グループなのか、<i>アクティブ</i>グループなのか</b>が通知されます。
+
         </p>
     </article>
 
     <article class="mb-4" data-description="roles">
-        <h5>Roles and Decisions in the Active Groups</h5>
+        <h5>アクティブグループにおける役割と決定</h5>
         <p>
-            In each <i>Active</i> group, the computer program randomly assigns roles to players.
-            There will be <b>one Red Player and two Blue Players</b>.
+            各<i>アクティブ</i>グループでは、コンピュータプログラムがプレイヤーにランダムに役割を割り当てます。
+            グループには<b>レッドプレイヤー1名とブループレイヤー2名</b>がいます。
         </p>
         <p>
-            The Red Player has the option to <b>increase his/her earnings by stealing ECU</b>
-            from the <i>Passive</i> group. Specifically,
-            the Red Player faces a binary decision: to steal or not to steal ECU from the Passive Group.
+            レッドプレイヤーは、<i>パッシブ</i>グループからECUを<b>盗むことで自身の報酬を増やす</b>選択肢を持ちます。
+            具体的には、レッドプレイヤーは「盗む」か「盗まない」かの二択を行います。
+            
         </p>
         <p>
-            <span class="text-decoration-underline">Here’s how it works:</span> <br>
-            If the Red Player decides to steal ECU, they <b>gain {{ STEALING_AMOUNT }} ECU</b>, while the
-            <i>Passive</i> group <b>loses {{ STEALING_LOSS }} ECU</b> in total.
-            This means each member of the <i>Passive</i> group loses {{ STEALING_LOSS_INDIV }} ECU
-            ({{ STEALING_LOSS_INDIV }} ECU x {{ PLAYERS_PER_GROUP }} = {{ STEALING_LOSS }} ECU).
-            If the Red Player does not steal ECU, no changes occur, and all participants’ earnings remain the same as
-            their Part 1 gains.
+            <span class="text-decoration-underline">仕組みは次のとおりです：</span> <br>
+            レッドプレイヤーがECUを盗むと、レッドプレイヤーは<b>{{ STEALING_AMOUNT }} ECU を獲得</b>し、
+            <i>パッシブ</i>グループは<b>{{ STEALING_LOSS }} ECU を失います</b>。
+            これは、パッシブグループの各メンバーが {{ STEALING_LOSS_INDIV }} ECU ずつ失うことを意味します（{{ STEALING_LOSS_INDIV }} ECU × {{ PLAYERS_PER_GROUP }} = {{ STEALING_LOSS }} ECU）。
+            レッドプレイヤーが盗まない場合、何も変化せず、全員の報酬はパート1のままです。
+
+            
         </p>
         <p>
-            Stealing is subject to a <b>penalty of {{ STEALING_PENALTY}} ECU</b>. However, a Red Player who decides to
-            steal may incur the penalty only when reported by one of the Blue Players, and even then the penalty is not
-            guaranteed.
+            盗み行為には<b>{{ STEALING_PENALTY }} ECU の罰則</b>があります。
+            ただし、レッドプレイヤーが罰則を受けるのはブループレイヤーの1人に報告された場合のみで、報告されても必ず罰則が適用されるわけではありません。
+
         </p>
     </article>
 
     <article class="mb-4" data-description="reporting">
-        <h5>Reporting Rules</h5>
+        <h5>報告のルール</h5>
         <p>
-            Each <i>Active</i> group’s Blue Players will decide whether to report the Red Player in their group if the
-            Red Player decides to steal ECU from the <i>Passive</i> group. If the Red Player does not steal, no
-            reporting takes place. Reporting is anonymous and submitted to the experimenter.
+            各<i>アクティブ</i>グループのブループレイヤーは、レッドプレイヤーが<i>パッシブ</i>グループからECUを盗んだ場合に報告するかどうかを決めます。
+            レッドプレイヤーが盗まなかった場合、報告は行われません。
+            報告は匿名で行われ、実験者に送られます。
         </p>
         <p>
-            If a Blue Player decides to report the Red Player, and the Red Player has stolen ECU,
-            the Blue Player incurs a <b>reporting cost of {{ REPORTING_COST }} ECU</b>
-            (deducted from their part 1 gains).
+            ブループレイヤーがレッドプレイヤーを報告し、レッドプレイヤーがECUを盗んでいた場合、
+            ブループレイヤーは<b>{{ REPORTING_COST }} ECU の報告コスト</b>を支払います（パート1の報酬から差し引かれます）。
+
         </p>
         <ul>
             <li>
-                <u>If the Red Player has stolen ECU:</u> <br>
+                <u>レッドプレイヤーがECUを盗んだ場合：</u> <br>
                 <ul>
-                    <li>The Blue Player who reported incurs the <b>reporting cost of {{ REPORTING_COST }} ECU</b>.</li>
-                    <li>The reported Red Player incurs a <b>penalty of {{ STEALING_PENALTY}} ECU</b> with a probability
-                        of {{ AUDIT_PROBABILITY_STR }} (deducted from their part 1 gains and the {{ STEALING_AMOUNT }}
-                        ECU they stole) and incurs no penalty with a probability of {{ NON_AUDIT_PROBABILITY_STR }}.
+                    <li>報告したブループレイヤーは<b>{{ REPORTING_COST }} ECU の報告コスト</b>を負担します。</li>
+                    <li>報告されたレッドプレイヤーは、{{ AUDIT_PROBABILITY_STR }} の確率で
+                    <b>{{ STEALING_PENALTY }} ECU の罰則</b>を受けます（パート1の報酬と盗んだ {{ STEALING_AMOUNT }} ECU から差し引かれます）。
+                    {{ NON_AUDIT_PROBABILITY_STR }} の確率で罰則はありません。
                     </li>
                     {{ if subsession.reward }}
-                    <li>If the Red Player is penalized, the Blue Player receives a <b>reporting reward of
-                        {{ REPORTING_REWARD }} ECU</b>.
+                    <li>レッドプレイヤーが罰則を受けた場合、ブループレイヤーは<b>{{ REPORTING_REWARD }} ECU の報酬</b>を受け取ります。
+                        
                     </li>
                     {{ endif }}
                 </ul>
             </li>
             <li>
-                <u>If Red Player did not steal ECU:</u> <br>
+                <u>レッドプレイヤーがECUを盗まなかった場合：</u> <br>
                 <ul>
-                    <li>There is <b>no report</b> from the Blue Players.</li>
-                    <li>There is <b>no penalty</b> for the Red Player.</li>
+                    <li><b>報告は行われません。</b></li>
+                    <li><b>レッドプレイヤーに罰則はありません。</b></li>
                 </ul>
             </li>
         </ul>
     </article>
 
     <article class="mb-4" data-description="randomization">
-        <h5>Randomized Reporting</h5>
+        <h5>報告のランダム適用</h5>
         <p>
-            If the Red Player has stolen ECU, <b>one Blue Player’s decision</b> (to report or not) will be randomly
-            selected by the computer program.
+            レッドプレイヤーがECUを盗んだ場合、コンピュータは<b>ブループレイヤーの決定のうち1つ</b>をランダムに選びます。
+
         </p>
         <ul>
-            <li>If the selected decision is to report, the Blue player incurs the
-                reporting cost and the Red Player is reported.
-            </li>
-            <li>If the selected decision is to not report, the Red Player is not reported.</li>
+            <li>選ばれた決定が「報告する」の場合、ブループレイヤーは報告コストを負担し、レッドプレイヤーは報告されます。</li>
+
+
+            
+            <li>選ばれた決定が「報告しない」の場合、レッドプレイヤーは報告されません。</li>
         </ul>
         <p>
-            The non-selected Blue Player’s decision has no effect. <br>
-            If the Red Player has not stolen ECU, no action is taken.
+            選ばれなかったブループレイヤーの決定は影響しません。<br>
+            レッドプレイヤーが盗まなかった場合、何も起こりません。
         </p>
     </article>
 
     <hr>
     <div class="card mt-4">
         <div class="card-header">
-            <h5>Summary of Key Points</h5>
+            <h5>重要ポイントのまとめ</h5>
         </div>
         <div class="card-body">
             <p>
-                One group will be randomly selected as the <i>Passive group</i>.
-                All other groups are <i>Active groups</i>. <br>
-                In each active group:
+                1つのグループがランダムに<i>パッシブグループ</i>として選ばれます。
+                その他のグループは<i>アクティブグループ</i>です。 <br>
+                各アクティブグループでは：
             </p>
             <ul>
-                <li>One participant is the Red Player and two participants are the Blue Players.</li>
+                <li>1名がレッドプレイヤー、2名がブループレイヤーです。</li>
                 <li>
-                    The Red Player decides whether to steal ECU from the passive group (Stealing adds
-                    {{ STEALING_AMOUNT }} ECU to the Red Player’s earnings and deducts {{ STEALING_LOSS }} ECU
-                    from the passive group).
+                    レッドプレイヤーはパッシブグループからECUを盗むかどうかを決めます
+                    （盗むと {{ STEALING_AMOUNT }} ECU を獲得し、パッシブグループは {{ STEALING_LOSS }} ECU を失います）。
+
                 </li>
                 <li>
-                    Blue Players decide whether to report the Red Player if they steal ECU.
+                    ブループレイヤーは、レッドプレイヤーが盗んだ場合に報告するかどうかを決めます。</li>
                 </li>
-                <li>If the Red Player has stolen ECU:
+                <li>レッドプレイヤーが盗んだ場合：
                     <ul>
-                        <li>The computer randomly selects one Blue Player’s decision to implement.</li>
+                        <li>コンピュータがブループレイヤーの決定のうち1つをランダムに選びます。</li>
                         <li>
-                            If the selected Blue Player’s decision is to report, they incur a cost of
-                            {{ REPORTING_COST }} ECU. The Red Player incurs a penalty of {{
-                            STEALING_PENALTY }} ECU with a probability of {{ AUDIT_PROBABILITY_STR }} and
-                            is not penalized with a probability of {{ NON_AUDIT_PROBABILITY_STR }}.
+                            選ばれた決定が「報告する」の場合、ブループレイヤーは {{ REPORTING_COST }} ECU を負担し、
+                            レッドプレイヤーは {{ AUDIT_PROBABILITY_STR }} の確率で {{ STEALING_PENALTY }} ECU の罰則を受けます。
+                            {{ NON_AUDIT_PROBABILITY_STR }} の確率で罰則はありません。
+
                             {{ if subsession.reward }}
-                            If the Red Player is penalized, the Blue Player receives a reward of
-                            {{ REPORTING_REWARD }} ECU.
+                            レッドプレイヤーが罰則を受けた場合、ブループレイヤーは {{ REPORTING_REWARD }} ECU を受け取ります。
+
                             {{ endif }}
                         </li>
-                        <li>If the selected Blue Player's decision is to not report, the Red Player is not
-                            reported.
+                       <li>選ばれた決定が「報告しない」の場合、レッドプレイヤーは報告されません。
+
                         </li>
                     </ul>
                 </li>
                 <li>
-                    If the Red Player has not stolen ECU, nothing happens (no reporting).
+                    レッドプレイヤーが盗まなかった場合、何も起こりません（報告なし）。
                 </li>
             </ul>
         </div>
