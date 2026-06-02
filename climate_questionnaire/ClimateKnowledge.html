@@ -17,12 +17,12 @@
 <div class="card bg-light mb-3">
     <div class="card-body">
         <p>
-            For the next question, we would like you to rank the items according to the greenhouse gas emissions they
-            emit,
-            to the best of your knowledge (where 1 is the item that emits the most and 3 is the item that emits the
-            least).
-            The greenhouse gas emissions of a product are those emitted at all steps involved in its production and
-            distribution.
+            次の質問では、温室効果ガス排出量に関するあなたの知識に基づいて、以下の項目を排出量の多い順に順位付けしてください（1 が最も排出量が多く、3 が最も少ないものです）。
+            製品の温室効果ガス排出量とは、その生産および流通のすべての過程で排出される量を指します。
+
+
+
+
         </p>
         {{ formfield "rank_coal" label=fields_labels.rank_coal }}
         {{ formfield "rank_gas" label=fields_labels.rank_gas }}
@@ -31,7 +31,7 @@
 </div>
 {{ next_button }}
 <p class="form-control-errors visually-hidden">
-    Please ensure that all ranks are unique.
+    すべての順位が重複しないようにしてください。
 </p>
 {{ endblock }}
 {{ block scripts }}
