@@ -7,7 +7,7 @@
 {{ endblock }}
 
 {{ block title }}
-Welcome
+ようこそ
 {{ endblock }}
 
 {{ block content }}
@@ -16,48 +16,48 @@ Welcome
     <div class="card-body">
         <article>
             <p>
-                You are invited to take part in a <b>research study about individual and group decision-making</b>.
-                Your participation will help us better understand how people interact with group members and authorities
-                in
-                various situations.
+                あなたは<b>個人およびグループの意思決定に関する研究</b>への参加をお願いされています。
+                この研究へのご協力は、人々がさまざまな状況でグループメンバーや権威とどのように関わるかを理解するうえで役立ちます。
+
+
             </p>
             <p>
-                Your participation is entirely voluntary. If you agree to participate, you will receive a <b>fixed fee
-                of
-                {{ session.config.participation_fee }} plus a bonus</b> depending on your decisions and
-                the decisions of other participants.
-                The experiment will take approximately one hour of your time.
+                参加は完全に任意です。参加に同意いただける場合、<b>{{ session.config.participation_fee }} の固定報酬に加えて、あなた自身および他の参加者の意思決定に応じたボーナス</b>を受け取ります。
+                実験は約1時間を予定しています。
+
+
+
             </p>
             <p>
-                There are no foreseeable risks associated with participating in this study. You are free to withdraw at
-                any
-                time, for any reason, without penalty.
-                Please note, however, that since this is a group experiment, your withdrawal may affect the
-                participation
-                of other group members.
+                本研究に参加することによる予見されるリスクはありません。
+                参加はいつでも、理由を問わず、ペナルティなしで中止できます。
+                ただし、この実験はグループ形式で行われるため、あなたの途中退出が他の参加者の進行に影響する可能性がある点にご注意ください。
+
+
+
             </p>
 
-            <h5>Confidentiality and Data Protection</h5>
+            <h5>機密保持とデータ保護</h5>
             <p>
-                All data collected in this study will be processed strictly for scientific purposes. Your responses will
-                remain <b>completely anonymous and confidential</b>. No personally identifiable
-                information will be collected or linked to your decisions in the experiment.
-                There will be no data transfer outside the European Union.
+                本研究で収集されるデータは、科学的目的のみに厳密に使用されます。
+                あなたの回答は<b>完全に匿名かつ機密</b>として扱われます。
+                個人を特定できる情報が収集されたり、あなたの意思決定と紐づけられたりすることはありません。
+
             </p>
             <p>
-                The data controller is Dimitri Dubois (CEE-M, CNRS, University of Montpellier, France). Data
-                recipients include: Rustam Romaniuc (MBS Montpellier Business School), Dimitri Dubois
-                (CNRS, University of Montpellier) and Andrea Guido (PSB Paris School of Business).
+                データ管理者は Dimitri Dubois（CEE-M, CNRS, モンペリエ大学, フランス）です。
+                データ受領者には 上條 良夫、Pham Tuan Vinh (早稲田大学)、Rustam Romaniuc（MBS Montpellier Business School）、
+                Dimitri Dubois（CNRS, モンペリエ大学）、Andrea Guido（PSB Paris School of Business）が含まれます。
             </p>
             <p>
-                You have the right to access your data, to request correction or deletion of your data, to restrict or
-                object to the processing of your data, and to request data portability. <br>
-                To exercise these rights, you can contact Dimitri Dubois at: dimitri.dubois@umontpellier.fr.
+                あなたには、データへのアクセス、訂正・削除の要求、処理の制限または異議申し立て、データポータビリティの権利があります。<br>
+                これらの権利を行使する場合は、以下の連絡先までご連絡ください：
+                Dimitri Dubois（dimitri.dubois@umontpellier.fr）、Pham Tuan Vinh (vpham@toki.waseda.jp)
             </p>
             <p>
-                This study is funded by the French National Research Agency (ANR), grant number
-                ANR-21-CE26-0016. For any questions about the study, please contact Rustam Romaniuc at
-                r.romaniuc@mbs-education.com.
+                研究に関する質問は Pham Tuan Vinh (vpham@toki.waseda.jp) までお問い合わせください。
+
+                
             </p>
         </article>
     </div>
@@ -65,13 +65,13 @@ Welcome
 
 <div class="mb-3">
     <p>
-        Please confirm your consent to participate in this study by checking the box below:
+        下記のチェックボックスにチェックを入れて、本研究への参加に同意することを確認してください：
     </p>
     <p>
         <label>
             <input type="checkbox" id="consent" name="consent" onclick="enableNextButton()">
-            I have read and understood the information provided above. I voluntarily agree to participate in this
-            study.
+            上記の説明を読み、内容を理解しました。本研究への参加に自発的に同意します。
+
         </label>
     </p>
 </div>
