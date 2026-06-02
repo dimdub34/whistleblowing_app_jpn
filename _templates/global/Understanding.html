@@ -1,11 +1,11 @@
 {{ block title }}
-Understanding Questionnaire
+理解度確認アンケート
 {{ endblock }}
 
 {{ block content }}
 
 <div class="text-end mb-3">
-    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal_content">Instructions
+    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal_content">説明
     </button>
 </div>
 
@@ -13,7 +13,7 @@ Understanding Questionnaire
     {{ for question in understanding }}
     <div class=" form-control mb-1 p-3">
         <p>
-            <strong>Question {{ forloop.counter }}</strong> : {{ question.question|safe }}
+            <strong>質問  {{ forloop.counter }}</strong> : {{ question.question|safe }}
         </p>
         {{ for prop in question.propositions }}
         <div class="form-check {{ if is_defined('question.horizontal') and question.horizontal }}form-check-inline me-3{{ endif }}">
@@ -23,7 +23,7 @@ Understanding Questionnaire
         </div>
         {{ endfor }}
         <p class="form-control-errors" style="display: none;" id="error_{{question.question_id}}">
-            This is not the correct answer.
+            これは正しい答えではありません。
         </p>
     </div>
     {{ endfor }}
