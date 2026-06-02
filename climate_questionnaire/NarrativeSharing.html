@@ -15,42 +15,42 @@
     <div class="card-body">
         <article lang="en">
             <p>
-                Thanks for giving your opinion on the facts explaining climate change.
+                気候変動を説明する事実についてご意見をお寄せいただき、ありがとうございます。
             </p>
             <p>
-                Now, we give you the opportunity to <b>share</b> your opinion about climate change with <b>
-                participants in a future study</b>.
+                ここでは、あなたの気候変動に関する意見を、<b>将来の研究に参加する参加者</b>と<b>共有</b>する機会を提供します。
+
             </p>
             <p>
-                To determine whether your opinion will be given to future participants, you will make some decisions in
-                an incentivized task.
+                あなたの意見を将来の参加者に提示するかどうかを決定するために、この後インセンティブ付きのタスクでいくつかの選択を行っていただきます。
+
             </p>
             <p>
-                In this task, you have to select one of the following two options in each of the following decisions.
+                このタスクでは、以下の各意思決定において、次の2つの選択肢のいずれかを選んでください。
             </p>
             <ul>
-                <li>Option A: Give my opinion to future participants</li>
-                <li>Option B: Receive a given monetary amount</li>
+                <li>選択肢A：自分の意見を将来の参加者に共有する</li>
+                <li>選択肢B：提示された金額を受け取る</li>
             </ul>
             <p>
-                For {{ num_selected }} participant{{ if num_selected > 1 }}s{{ endif }} in this session, we will
-                randomly select one of the decisions (one row of the table below), and implement it.
+                このセッションでは、{{ num_selected }} 名の参加者について、以下の表の中からランダムに1つの意思決定（1行）を選び、その結果を実施します。
+
             </p>
             <p>
-                For example, if you select "Option A" to the first row, and that row is randomly selected, we will give
-                your opinion to future participants. If you select "Option B" instead, and that row is selected, you
-                will receive {{ amount_example|cu }}.
+                例えば、最初の行で「選択肢A」を選び、その行がランダムに選ばれた場合、あなたの意見は将来の参加者に共有されます。代わりに「選択肢B」を選び、その行が選ばれた場合、あなたは {{ amount_example|cu }} を受け取ります。
+
+
             </p>
-            <p>Payments will be done at the end of the experiment.</p>
-            <p>Indicate below the option you prefer for each decision.</p>
+            <p>支払いは実験終了時に行われます。</p>
+            <p>以下の各意思決定について、希望する選択肢を選んでください。</p>
         </article>
 
         <table class="table table-sm align-middle w-auto mx-auto">
             <thead>
             <tr>
-                <th class="w-25">Option A</th>
+                <th class="w-25">選択肢A</th>
                 <th class="w-50 text-center"></th>
-                <th class="w-25">Option B</th>
+                <th class="w-25">選択肢B</th>
             </tr>
             </thead>
             <tbody>
