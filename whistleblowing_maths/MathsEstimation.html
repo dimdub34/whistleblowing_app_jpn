@@ -7,7 +7,7 @@
 </style>
 {{ endblock }}
 {{ block title }}
-Task 2: Guessing stage
+タスク2：推測ステージ
 {{ endblock }}
 
 {{ block content }}
@@ -16,14 +16,14 @@ Task 2: Guessing stage
     <div class="card-body">
         {{ if subsession.treatment == INDIVIDUAL }}
         <p>
-            You have now completed Task 2. Before proceeding to Task 3, please tell us your guess about the number of
-            operations you successfully completed in Task 2.
+            タスク2が終了しました。タスク3に進む前に、タスク2であなたが正しく解いた問題数について推測を教えてください。
+
         </p>
 
         {{ elif subsession.treatment == COOPERATION }}
         <p>
-            You have now completed Task 2. Before proceeding to Task 3, please tell us your guess about the number of
-            operations the best scorer in your group has successfully completed in Task 2.
+            タスク2が終了しました。タスク3に進む前に、タスク2であなたのグループ内で最も多くの問題を正しく解いた人の問題数について推測を教えてください。
+
         </p>
         {{ endif }}
     </div>
