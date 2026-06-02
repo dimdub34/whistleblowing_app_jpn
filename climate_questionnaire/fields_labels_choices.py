@@ -309,7 +309,7 @@ class Lexicon:
         "あなたの世帯について、平均的な月間の手取り収入（税金・控除後）はどの程度だと思いますか？<br>"
         "給与、年金、家族手当、失業給付、その他の定期的な収入を含めてお答えください。"
     )
-education_label = "あなたが達成した最終学歴はどれですか？"
+    education_label = "あなたが達成した最終学歴はどれですか？"
 
     @staticmethod
     def _get_field_label(field_name):
