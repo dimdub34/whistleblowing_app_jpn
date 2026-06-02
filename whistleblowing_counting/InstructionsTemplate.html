@@ -1,41 +1,41 @@
 <article>
     <p>
-        For this task, during {{ effort_duration }}, you will be asked to <b>count 1’s in grids with
-        {{ GRID_SIZE.0 }} rows and {{ GRID_SIZE.1 }} columns</b> that contain only 0’s and 1’s.
-        You will be offered {{ NUM_GRIDS }} grids.
+        このタスクでは、{{ effort_duration }} の間、<b>{{ GRID_SIZE.0 }} 行 × {{ GRID_SIZE.1 }} 列</b>のグリッドに含まれる「1」の数を数えていただきます。
+        グリッドには 0 と 1 のみが含まれています。
+        合計で {{ NUM_GRIDS }} 個のグリッドが提示されます。
     </p>
     <p>
-        You first need to <b>select one of the grids</b> and then count the number of 1’s
-        in that grid. Once done, you need to enter the number in the input box below the grid and click the
-        <i>Validate</i> button. The button of the counted grid will then turn orange to indicate that you have already
-        counted it. Click on another button to select another grid and repeat the process.
+        まず、<b>いずれかのグリッドを選択</b>し、そのグリッド内の「1」の数を数えてください。
+        数え終わったら、グリッドの下にある入力欄にその数を入力し、<i>確定</i>ボタンをクリックします。
+        数え終わったグリッドのボタンはオレンジ色に変わり、すでに数えたことが示されます。
+        別のグリッドを選択し、同じ手順を繰り返してください。
     </p>
 
     {{ if subsession.treatment == INDIVIDUAL }}
     <p>
-        <b>Your earnings will depend solely on your own performance</b> in the task and do not depend on the performance
-        of the other group members.
-        If the entered number is correct, your gain will increase by {{ PIECE_RATE }} ECU. If it is incorrect, your
-        gain will remain unchanged. <br>
+        <b>あなたの報酬は、このタスクにおけるあなた自身の成績のみに基づきます。</b>
+        他の参加者の成績は影響しません。
+        入力した数が正しければ、あなたの報酬は {{ PIECE_RATE }} ECU 増えます。
+        間違っている場合、報酬は変わりません。<br>
     </p>
 
     {{ elif subsession.treatment == COOPERATION }}
     <p>
-        <b>Your earnings in this task will depend on the best scorer in the group.</b>
-        The best scorer in the group is the group member who has successfully completed the most grids. For each grid
-        that the best scorer completed, each group member will receive {{ PIECE_RATE }} ECU. Therefore, this means that
-        the better your group members do on the task, the more you can earn.
+        <b>このタスクでのあなたの報酬は、グループ内で最も多くのグリッドを正しく数えた参加者（ベストスコアラー）に基づきます。</b>
+        ベストスコアラーとは、最も多くのグリッドを正しく完了した参加者です。
+        ベストスコアラーが正しく数えたグリッド1つにつき、グループ全員が {{ PIECE_RATE }} ECU を受け取ります。
+        つまり、グループメンバーの成績が良いほど、あなたの報酬も増えます。
     </p>
 
     {{ endif }}
 
     <p>
-        <b>You can do as many grids as you want during the {{ effort_duration }} that are allocated to you.</b> <br>
-        You will be informed of you earnings for this task only at the end of the experiment.
+        <b>{{ effort_duration }} の間、あなたは好きなだけ多くのグリッドに取り組むことができます。</b><br>
+        このタスクでの報酬は、実験の最後にまとめてお知らせします。
     </p>
     <figure class="text-center">
-        <figcaption class="fst-italic text-muted fw-bold text-center">Screenshot: orange cells are grids already
-            counted.
+        <figcaption class="fst-italic text-muted fw-bold text-center">スクリーンショット：オレンジ色のセルはすでに数えたグリッドです。
+            
         </figcaption>
         <img class="img-thumbnail mx-auto" alt="screenshot"
              src="{{ static 'whistleblowing_counting/screenshot_en.png' }}">
