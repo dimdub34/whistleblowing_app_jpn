@@ -45,21 +45,21 @@
 {{ endblock }}
 
 {{ block title }}
-Task 3: Sliders
+タスク3：スライダー
 {{ endblock }}
 
 {{ block content }}
 <div class="text-end mb-3">
     <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal_content">
-        Instructions
+        説明
     </button>
 </div>
 
 <div class="card text-justify bg-light mb-3">
     <div class="card-body">
         <p>
-            Select a slider by clicking on the corresponding button, move the cursor to the target value
-            and click on the <i>Validate</i> button. Then select another slider and repeat the process.
+            対応するボタンをクリックしてスライダーを選択し、カーソルを目標値まで動かして
+            <i>確定</i> ボタンをクリックしてください。その後、別のスライダーを選択し、同じ手順を繰り返してください。
         </p>
     </div>
 </div>
@@ -80,7 +80,7 @@ Task 3: Sliders
         Slider
         <span id="slider_number">1</span></h6>
     <p class="fw-bold">
-        Target value:
+        目標値：
         <span id="target_value">{{ sliders.0.target }}</span>
     </p>
     <div class="mb-5 text-center">
@@ -107,7 +107,7 @@ Task 3: Sliders
         </div>
     </div>
     <button type="button" class="btn btn-primary" id="btn_validate" onclick="validate();">
-        Validate
+        確定
     </button>
 </div>
 
