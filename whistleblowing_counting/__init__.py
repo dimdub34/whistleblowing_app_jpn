@@ -64,7 +64,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     counting_performance = models.IntegerField()
-    counting_estimation = models.IntegerField(label="Your guess:", min=0, max=100)
+    counting_estimation = models.IntegerField(label="あなたの予想：", min=0, max=100)
     payoff_ecu = models.FloatField()
 
     def set_txt_final(self):
