@@ -3,7 +3,7 @@
 {{ endblock }}
 
 {{ block title }}
-Part 1: Questionnaire
+パート1：質問票
 {{ endblock }}
 
 {{ block content }}
@@ -12,38 +12,38 @@ Part 1: Questionnaire
     <div class="card-body">
         <article>
             <p>
-                Before we move to Part 2, we ask you to answer one question.
-                Please carefully read the instructions below.
+                パート2に進む前に、1つ質問にお答えいただきます。
+                以下の説明をよく読んでください。
             </p>
             <p>
-                Once you move the slider below, a pair of circles will appear in the box.
-                The position of the slider will determine the extent to which the circles overlap.
+                下のスライダーを動かすと、ボックス内に2つの円が表示されます。
+                スライダーの位置によって、円の重なり具合が変わります。
             </p>
             <ul>
                 <li>
-                    When the slider is all the way to the left, the circles will look like this.
+                    スライダーが一番左にあると、円は次のように表示されます。
                     <img src="{{ static 'whistleblowing_ios/ios_left.png' }}" alt="left" style="height: 2em;">
                 </li>
                 <li>
-                    When the slider is near the middle, the circles look like this.
+                    スライダーが中央付近にあると、円は次のように表示されます。
                     <img src="{{ static 'whistleblowing_ios/ios_middle.png' }}" alt="left" style="height: 2em;">
                 </li>
                 <li>
-                    With it all the way to the right, the circles look like this.
+                    スライダーが一番右にあると、円は次のように表示されます。
                     <img src="{{ static 'whistleblowing_ios/ios_right.png' }}" alt="right" style="height: 2em;">
                 </li>
             </ul>
             <p>
-                You should interpret the degree of overlap as representing <strong>the relationship between you and
-                the other members of your group</strong>.
+                円の重なり具合は、<strong>あなたとグループの他のメンバーとの関係性</strong>を表していると解釈してください。
+                
             </p>
         </article>
     </div>
 </div>
 
 <p>
-    Please position the slider so that the circles indicate to what extent you and the other members of your group
-    are connected.
+    スライダーを動かして、あなたとグループの他のメンバーがどの程度つながっていると感じるかを示してください。
+
 </p>
 
 <table class="IOS mb-3">
@@ -93,7 +93,7 @@ Part 1: Questionnaire
 {{ next_button }}
 
 <p class="form-control-errors" style="display: none;" id="error_ios">
-    You must move the slider, even if you put it back to the left afterward.
+    スライダーを一度は動かす必要があります（その後左に戻しても構いません）。
 </p>
 
 {{ endblock }}
