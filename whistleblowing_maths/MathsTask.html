@@ -1,19 +1,19 @@
 {{ block title }}
-Task 2: Additions
+タスク2：加算問題
 {{ endblock }}
 
 {{ block content }}
 <div class="text-end mb-3">
     <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal_content">
-        Instructions
+        説明
     </button>
 </div>
 
 <div class="card text-justify bg-light mb-3">
     <div class="card-body">
         <p>
-            Select an operation by clicking on the corresponding button, calculate the sum of numbers, enter the value
-            in the input widget and click on "Validate". Then click on another operation and repeat the process.
+            対応するボタンをクリックして問題を選択し、数字の合計を計算して入力欄に記入し、「確定」をクリックしてください。
+            その後、別の問題をクリックして同じ手順を繰り返してください。
         </p>
     </div>
 </div>
@@ -32,7 +32,7 @@ Task 2: Additions
 
 <div class="text-center">
     <h6 class="text-info">
-        Operation
+        問題
         <span id="operation_number">1</span>
     </h6>
     <div class="text-center mb-3 fs-4">
@@ -45,12 +45,12 @@ Task 2: Additions
     </div>
     <div class="text-center mb-3">
         <label for="operation_sum">
-            Sum of numbers:
+            合計：
         </label>&nbsp;
         <input type="number" class="form-control d-inline text-center" name="operation_sum" id="operation_sum"
                style="width: 80px;">&nbsp;
         <button type="button" class="btn btn-primary" id="btn_validate" onclick="validate();">
-            Validate
+            確定
         </button>
     </div>
 </div>
