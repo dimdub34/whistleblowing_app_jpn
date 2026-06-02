@@ -1,25 +1,25 @@
 {{ block title }}
-Part 2: Stealing Decision
+パート2：盗むかどうかの決定
 {{ endblock }}
 
 {{ block content }}
 
 <div class="text-end mb-3">
     <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal_content">
-        Instructions
+        説明
     </button>
 </div>
 
 <div class="card bg-light mb-3">
     <div class="card-body">
         <p>
-            As a <b>Red Player</b> you have to decide whether you want to steal ECU from the Passive group.
+            あなたは<b>レッドプレイヤー</b>として、パッシブグループからECUを盗むかどうかを決める必要があります。
         </p>
         <p class="text-muted">
-            As a reminder, if you steal ECU, one of the two Blue Players's decisions will be randomly chosen and
-            implemented. If the selected Blue Player decided to report, you will have a probability of
-            {{ AUDIT_PROBABILITY_STR }} to be punished. If you are punished you will pay a penalty of
-            {{ STEALING_PENALTY }} ECU.
+            もう一度説明すると、あなたがECUを盗んだ場合、2人のブループレイヤーのうち1人の決定がランダムに選ばれて適用されます。
+            選ばれたブループレイヤーが「報告する」と決めていた場合、あなたは {{ AUDIT_PROBABILITY_STR }} の確率で処罰されます。
+            処罰された場合、あなたは {{ STEALING_PENALTY }} ECU の罰金を支払うことになります。
+
         </p>
     </div>
 </div>
