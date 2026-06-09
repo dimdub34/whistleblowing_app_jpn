@@ -6,7 +6,7 @@ from otree.api import *
 from .fields_labels_choices import *
 
 doc = """
-Narratives on Climate Change
+気候変動に関するナラティブ
 """
 
 app_name = Path(__file__).parent.name
@@ -163,25 +163,25 @@ class Player(BasePlayer):
                 # We add 1 to the row index to match human counting (1-based)
                 row_display = self.random_row + 1
 
-                txt_final += (f"For the incentivized task of the questionnaire, row #{row_display} of the "
-                              f"questionnaire was randomly selected. ")
+                txt_final += (f"質問票のインセンティブ付きタスクでは、ランダムに第{row_display}行が選ばれました。 ")
+
 
                 if chosen_choice == "B":
                     self.payoff = cu(self.random_amount)
-                    txt_final += (f"For this row, you chose Option B (Receive a monetary amount). "
-                                  f"Therefore, your opinion will not be shared, and you receive {self.payoff}.")
+                    txt_final += (f"この行では、あなたは選択肢B（一定額を受け取る）を選びました。"
+                                  f"したがって、あなたの意見は共有されず、{self.payoff} を受け取ります。")
                 else:
                     self.payoff = cu(0)
-                    txt_final += ("For this row, you chose Option A (Give my opinion). "
-                                  "Therefore, your opinion will be shared with future participants, and you "
-                                  "receive {self.payoff}.")
+                    txt_final += ("この行では、あなたは選択肢A（自分の意見を提供する）を選びました。"
+                                  したがって、あなたの意見は将来の参加者と共有され、報酬は {self.payoff} です。)
+
             else:
                 self.payoff = cu(0)
-                txt_final = ("An error occurred during the selection process of the incentivized task of "
-                             "the questionnaire.")
+                txt_final = ("質問票のインセンティブ付きタスクの選択処理中にエラーが発生しました。")
+
 
         else:
-            txt_final = "You were not selected for the incentivized task payment of the questionnaire."
+            txt_final = "あなたは質問票のインセンティブ付きタスクの対象者に選ばれませんでした。"
 
         app_dict = self.participant.vars.setdefault(app_name, {})
         app_dict["is_selected"] = self.is_selected
