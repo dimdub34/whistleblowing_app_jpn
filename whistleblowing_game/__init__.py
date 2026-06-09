@@ -16,12 +16,12 @@ app_name = Path(__file__).parent.name
 
 def get_appropriate():
     return [
-        (0, "Very inappropriate"),
-        (1, "Inappropriate"),
-        (2, "Rather inappropriate"),
-        (3, "Rather appropriate"),
-        (4, "Appropriate"),
-        (5, "Very appropriate"),
+        (0, "非常に不適切"),
+        (1, "不適切"),
+        (2, "やや不適切"),
+        (3, "やや適切"),
+        (4, "適切"),
+        (5, "非常に適切"),
     ]
 
 
@@ -104,16 +104,16 @@ class Player(BasePlayer):
 
     taker = models.BooleanField()
     taking_decision = models.BooleanField(
-        label="Do you want to steal ECU from the Passive group?",
+        label="パッシブグループからECUを盗みますか？",
         widget=widgets.RadioSelectHorizontal,
     )
     estimation_reporting = models.IntegerField(
-        label="Please indicate what you think is the likelihood that a Blue Player reports the Red Player:",
+        label="青プレイヤーが赤プレイヤーを報告する可能性をどの程度だと思いますか：",
         min=0,
         max=100,
     )
     reporting_decision = models.BooleanField(
-        label="Do you want to report the Red Player?",
+        label="赤プレイヤーを報告しますか？",
         widget=widgets.RadioSelectHorizontal,
     )
     audit_draw = models.FloatField()
@@ -122,67 +122,67 @@ class Player(BasePlayer):
 
     # Questions
     taker_motivation = models.LongStringField(
-        label="Can you tell us what motivated your decision (as Red Player):"
+        label="（赤プレイヤーとして）あなたの決定の動機を教えてください："
     )
     reporter_motivation = models.LongStringField(
-        label="Can you tell us what motivated your decision (as Blue Player) to report or not the Red Player:"
+        label="（青プレイヤーとして）赤プレイヤーを報告する／しない決定の動機を教えてください："
     )
     personal_opinion = models.IntegerField(
-        label="Please evaluate according to your own opinion and independently of the opinion of others whether "
-              "it is appropriate or not to report the Red Player. "
-              "'Appropriate' behavior means the behavior that you personally consider to be 'correct' or 'moral'. "
-              "The standard is, hence, your personal opinion, independently of the opinion of others. "
-              "We kindly ask you to answer as precisely as possible with your own honest opinion. "
-              "There is no right or wrong answer; you will not get any additional payment for your answer to this "
-              "question.",
+        label="赤プレイヤーを報告することが適切かどうか、他者の意見とは独立に、あなた自身の意見で評価してください。"
+
+              "「適切」とは、あなたが個人的に「正しい」「道徳的」と考える行動を意味します。"
+              "基準は他者の意見ではなく、あなた自身の正直な意見です。"
+              "正解・不正解はなく、この質問への回答による追加報酬もありません。",
+
+
         choices=get_appropriate(),
         widget=widgets.RadioSelect,
     )
     society_opinion = models.IntegerField(
-        label=f"Now, please evaluate the opinion of society and independently of your own opinion whether "
-              f"it is appropriate or not to report the Red Player. 'Appropriate' behavior means behavior "
-              f"that you think most people would agree is 'correct' or 'moral'. "
-              f"The standard is therefore not your personal opinion, but your assessment of society's opinion. "
-              f"Please answer as precisely as possible. For this question, you can earn "
-              f"{Config.SOCIETY_OPTION_PAYOFF} ECU on top of your gains from the other parts of the experiment, "
-              f"depending on your answer. The answers of the other participants will influence your payment for this "
-              f"question. At the end, we will determine which answer to this question most participants gave. "
-              f"You will obtain {Config.SOCIETY_OPTION_PAYOFF} ECU if you gave the same answer as most participants. "
-              f"Example: suppose that you evaluate reporting the Red Player as 'Rather appropriate' and most "
-              f"participants in this room evaluate it the same way. Then you earn "
-              f"{Config.SOCIETY_OPTION_PAYOFF} ECU for this question. "
-              f"Note: all participants received the same instructions.",
+        label = f"次に、社会全体の意見を評価し、ご自身の意見とは独立に、" 
+              f"レッドプレイヤーを報告することが適切かどうかを判断してください。『適切』な行動とは、" 
+              f"多くの人が『正しい』または『道徳的である』と認めるであろう行動を意味します。 " 
+              f"したがって基準となるのはあなた個人の意見ではなく、社会の意見に対するあなたの評価です。 " 
+              f"できるだけ正確にお答えください。この質問では、あなたの回答に応じて、" 
+              f"実験の他の部分で得られる報酬に加えて {Config.SOCIETY_OPTION_PAYOFF} ECU を獲得できる可能性があります。 " 
+              f"他の参加者の回答が、この質問に対するあなたの報酬に影響します。 " 
+              f"最後に、この質問に対して最も多くの参加者が選んだ回答を決定します。 " 
+              f"あなたがその多数回答と同じ回答をした場合、{Config.SOCIETY_OPTION_PAYOFF} ECU を獲得します。"
+              f"例：あなたが「やや適切」と評価し、この部屋の多くの参加者も同じ評価をした場合、この質問で"
+
+              f"{Config.SOCIETY_OPTION_PAYOFF} ECUを獲得します。"
+              f"注：全参加者は同じ説明を受けています。",
         choices=get_appropriate(), widget=widgets.RadioSelect)
 
     def compute_payoffs(self):
         # --- Active group ---
         if self.group.active:
             txt_final = (
-                f"Your group has been randomly selected to be an Active group. "
-                f"Inside your group you had the role of a {'Red' if self.taker else 'Blue'} Player. "
+                f"あなたのグループはランダムにアクティブグループとして選ばれました。"
+                f"あなたはグループ内で{'赤' if self.taker else '青'}プレイヤーでした。"
             )
 
             if self.taker:  # Red Player
                 if self.taking_decision:  # Taker
-                    txt_final += "You decided to steal ECU from the Passive group. "
+                    txt_final += "あなたはパッシブグループからECUを盗むことを選びました。"
 
                     if self.group.reporter_has_reported:  # Reported
-                        txt_final += "The selected Blue Player has decided to report you. "
+                        txt_final += "選ばれた青プレイヤーはあなたを報告しました。"
 
                         if self.group.taker_audited:  # Audited
-                            txt_final += f"You were audited and fined {Config.STEALING_PENALTY} ECU. "
+                            txt_final += f"あなたは監査され、{Config.STEALING_PENALTY} ECUの罰金を科されました。"
                             self.payoff_ecu = Config.STEALING_AMOUNT - Config.STEALING_PENALTY
 
                         else:  # Not Audited
-                            txt_final += "You were not audited. "
+                            txt_final += "あなたは監査されませんでした。"
                             self.payoff_ecu = Config.STEALING_AMOUNT
 
                     else:  # Not Reported
-                        txt_final += "You were not reported. "
+                        txt_final += "あなたは報告されませんでした。"
                         self.payoff_ecu = Config.STEALING_AMOUNT
 
                 else:  # Not Taker
-                    txt_final += "You decided not to steal ECU from the Passive group. "
+                    txt_final += "あなたはパッシブグループからECUを盗まないことを選びました。"
                     self.payoff_ecu = 0
 
             else:  # Blue Player
@@ -190,54 +190,54 @@ class Player(BasePlayer):
                 self.payoff_ecu = 0
 
                 if self.reporting_decision:  # Reporter
-                    txt_final += "You decided to report the Red Player. "
+                    txt_final += "あなたは赤プレイヤーを報告することを選びました。"
 
                     # Case 1: Blue Player is selected.
                     if self.group.selected_reporter == self.id_in_group:
-                        txt_final += "You were selected to be the reporter. "
+                        txt_final += "あなたは報告者として選ばれました。"
 
                         if self.group.taker_has_taken:  # Taker stole
-                            txt_final += "The Red Player has stolen ECU from the Passive group. "
+                            txt_final += "赤プレイヤーはパッシブグループからECUを盗みました。"
                             self.payoff_ecu = -Config.REPORTING_COST
 
                             if self.group.taker_audited:  # Audited
-                                txt_final += "The Red Player was audited and fined. "
+                                txt_final += "赤プレイヤーは監査され、罰金を科されました。"
 
                                 if self.subsession.reward:  # With reward
-                                    txt_final += f"You received a reward of {Config.REPORTING_REWARD} ECU. "
+                                    txt_final += f"あなたは{Config.REPORTING_REWARD} ECUの報酬を受け取りました。"
                                     self.payoff_ecu += Config.REPORTING_REWARD
 
                             else:  # Not audited
-                                txt_final += "The Red Player was not audited. "
+                                txt_final += "赤プレイヤーは監査されませんでした。"
 
                         else:  # Taker did not steal
-                            txt_final += "The Red Player did not steal ECU from the Passive group. "
+                            txt_final += "赤プレイヤーはECUを盗みませんでした。"
 
                     # Case 2: Blue Player is not selected.
                     else:
-                        txt_final += "You were not selected to be the reporter. "
+                        txt_final += "あなたは報告者として選ばれませんでした。"
 
                         # Keep payoff at 0, but still inform the player about the Red decision.
                         if self.group.taker_has_taken:
-                            txt_final += "The Red Player has stolen ECU from the Passive group. "
+                            txt_final += "赤プレイヤーはパッシブグループからECUを盗みました。"
 
                         else:
-                            txt_final += "The Red Player did not steal ECU from the Passive group. "
+                            txt_final += "赤プレイヤーはECUを盗みませんでした。"
 
                 else:  # Not Reporter
-                    txt_final += "You decided not to report the Red Player. "
+                    txt_final += "あなたは赤プレイヤーを報告しないことを選びました。"
 
         # --- Passive group ---
         else:
-            txt_final = "Your group has been randomly selected to be a Passive group. "
+            txt_final = "あなたのグループはランダムにパッシブグループとして選ばれました。"
 
             if self.subsession.num_of_takers > 0:  # At least one taker
                 if self.subsession.num_of_takers == 1:
-                    txt_final += f"{self.subsession.num_of_takers} Red Player has decided to steal ECU from your group. "
+                    txt_final += f"{self.subsession.num_of_takers}人の赤プレイヤーがあなたのグループからECUを盗みました。"
                 else:
-                    txt_final += f"{self.subsession.num_of_takers} Red Players have decided to steal ECU from your group. "
+                    txt_final += f"{self.subsession.num_of_takers}人の赤プレイヤーがあなたのグループからECUを盗みました。"
             else:
-                txt_final += "No Red Player has decided to steal ECU from your group. "
+                txt_final += "赤プレイヤーは誰もあなたのグループからECUを盗みませんでした。"
             self.payoff_ecu = -self.subsession.num_of_takers * Config.STEALING_LOSS_INDIV
 
         game_payoff = self.payoff_ecu
@@ -245,22 +245,22 @@ class Player(BasePlayer):
         # -- payoff for norm (question society_opinion) ---
         txt_final += (
             "<br>"
-            f"In the question on your assessment of society's opinion, you responded "
-            f"<i>{get_appropriate()[self.society_opinion][1]}</i>. "
-            f"The majority of participants responded "
-            f"<i>{get_appropriate()[self.subsession.society_opinion_majority][1]}</i>."
+            f"社会の意見に関する質問で、あなたは<i>{get_appropriate()[self.society_opinion][1]}</i>と回答しました。"
+
+            f"参加者の多数派は<i>{get_appropriate()[self.subsession.society_opinion_majority][1]}</i>と回答しました。"
+
         )
 
         norm_payoff = 0
         if self.society_opinion == self.subsession.society_opinion_majority:
             norm_payoff = Config.SOCIETY_OPTION_PAYOFF
             self.payoff_ecu += norm_payoff
-            txt_final += f" You earn {Config.SOCIETY_OPTION_PAYOFF} ECU for your answer."
+            txt_final += f" あなたはこの質問で{Config.SOCIETY_OPTION_PAYOFF} ECUを獲得します。"
 
         txt_final += (
             "<br>"
-            f"Your payoff for part 2 of the experiment is {self.payoff_ecu} ECU "
-            f"(Game: {game_payoff} ECU + Opinion: {norm_payoff} ECU)."
+            f"実験パート2でのあなたの報酬は {self.payoff_ecu} ECU です "
+            f"(ゲーム: {game_payoff} ECU + 意見: {norm_payoff} ECU)。"
         )
         self.participant.vars[app_name] = dict(
             txt_final=txt_final,
@@ -280,7 +280,7 @@ class MyPage(Page):
     def vars_for_template(player: Player):
         return dict(
             instructions_template_path="whistleblowing_game/InstructionsTemplate.html",
-            instructions_template_title="Part 2 - Instructions",
+            instructions_template_title="パート2 - 説明",
             en=True,
             fr=False,
             **Config.get_parameters()
@@ -421,9 +421,9 @@ class Questionnaire(MyPage):
             player.participant._is_bot = True
             fields = Questionnaire.get_form_fields(player)
             if "taker_motivation" in fields:
-                player.taker_motivation = "Explanation for stealing decision"
+                player.taker_motivation = "盗む決定についての説明"
             if "reporter_motivation" in fields:
-                player.reporter_motivation = "Explanation for reporting decision"
+                player.reporter_motivation = "報告する決定についての説明"
             player.personal_opinion = random.randint(0, 5)
             player.society_opinion = random.randint(0, 5)
 
