@@ -11,23 +11,23 @@ app_name = Path(__file__).parent.name
 
 def relevant_likert():
     return [
-        (0, "not at all relevant (this consideration has nothing to do with my judgments of right or wrong)"),
-        (1, "not very relevant"),
-        (2, "slightly relevant"),
-        (3, "somewhat relevant"),
-        (4, "very relevant"),
-        (5, "extremely relevant"),
+        (0, "まったく関係ない（この要素は私の善悪判断と無関係である）"),
+        (1, "あまり関係ない"),
+        (2, "少し関係がある"),
+        (3, "やや関係がある"),
+        (4, "とても関係がある"),
+        (5, "非常に関係がある"),
     ]
 
 
 def agreement_likert():
     return [
-        (0, "Strongly disagree"),
-        (1, "Moderately disagree"),
-        (2, "Slightly disagree"),
-        (3, "Slightly agree"),
-        (4, "Moderately agree"),
-        (5, "Strongly agree"),
+        (0, "強く反対する"),
+        (1, "やや反対する"),
+        (2, "少し反対する"),
+        (3, "少し賛成する"),
+        (4, "やや賛成する"),
+        (5, "強く賛成する"),
     ]
 
 
@@ -48,66 +48,66 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     # ----- questionnaire 1 -----
     fairness_1 = models.IntegerField(
-        label="... whether or not someone acted unfairly",
+        label="... 誰かが不公平に行動したかどうか",
         choices=relevant_likert(), widget=widgets.RadioSelect())
     fairness_2 = models.IntegerField(
-        label="... whether or not someone was denied his or her rights", choices=relevant_likert(),
+        label="... 誰かが自分の権利を奪われたかどうか", choices=relevant_likert(),
         widget=widgets.RadioSelect())
     fairness_3 = models.IntegerField(
-        label="Justice is the most important requirement for a society", choices=agreement_likert(),
+        label="正義は社会にとって最も重要な要件である", choices=agreement_likert(),
         widget=widgets.RadioSelect())
     loyalty_1 = models.IntegerField(
-        label="... whether or not someone did something to betray his or her group", choices=relevant_likert(),
+        label="... 誰かが自分の集団を裏切るような行動をしたかどうか", choices=relevant_likert(),
         widget=widgets.RadioSelect())
     loyalty_2 = models.IntegerField(
-        label="... whether or not someone showed a lack of loyalty", choices=relevant_likert(),
+        label="... 誰かが忠誠心を欠いていたかどうか", choices=relevant_likert(),
         widget=widgets.RadioSelect())
     loyalty_3 = models.IntegerField(
-        label="People should be loyal to their family members, even when they have done something wrong",
+        label="人は、たとえ家族が悪いことをしたとしても家族に忠実であるべきだ",
         choices=agreement_likert(), widget=widgets.RadioSelect())
     morally_good_person = models.IntegerField(
-        label="Objectively speaking, who do you think is the more morally good person?",
+        label="客観的に見て、より道徳的に優れた人物はどちらだと思いますか？",
         choices=[
-            (1, "Someone who is fair and just, impartial and unprejudiced"),
-            (0, "Someone who is loyal and faithful, devoted and dependable"),
+            (1, "公平で正義を重んじ、偏見なく判断する人"),
+            (0, "忠実で誠実、献身的で信頼できる人"),
         ], widget=widgets.RadioSelect())
     friend_choice = models.IntegerField(
         label="Who would you rather be friends with?",
         choices=[
-            (1, "Someone who is fair and just to others, who is impartial and unprejudiced regardless of "
-                "how it affects their family and friends"),
-            (0, "Someone who is loyal and faithful to their family and friends, who is devoted and "
-                "dependable regardless of how it affects outsiders"),
+            (1, "他者に対して公平で正義を重んじ、家族や友人への影響に関係なく偏見なく判断する人"),
+
+            (0, "家族や友人に忠実で誠実、献身的で信頼でき、外部の人への影響に関係なく行動する人"),
+
         ], widget=widgets.RadioSelect())
     # ----- questionnaire 2 -----
     share_friend_stranger = models.IntegerField(
-        label=f"How much of your {cu(1000)} would you give to your friend, if the rest goes to a "
-              "random stranger from your country?",
+        label=f"あなたの{cu(1000)}のうち、友人にいくら渡しますか？残りはあなたの国の見知らぬ人に渡されます。",
+
         min=0,
         max=1000,
     )
 
     # ----- demographics -----
     age = models.IntegerField(
-        label="What is your age?",
+        label="あなたの年齢を教えてください。",
         choices=range(16, 121))
     gender = models.StringField(
-        label="What is your gender?",
+        label="あなたの性別を教えてください。",
         choices=[
-            ("F", "Female"),
-            ("M", "Male"),
-            ("NB", "Non-binary"),
-            ("NSP", "Prefer not to say"),
+            ("F", "女性"),
+            ("M", "男性"),
+            ("NB", "ノンバイナリー"),
+            ("NSP", "回答したくない"),
         ], widget=widgets.RadioSelect())
     highest_diploma = models.IntegerField(
-        label="What is the highest level of education you have completed?",
+        label="あなたが修了した最終学歴を教えてください。",
         choices=[
-            (0, "No formal education"),
-            (1, "Primary education"),
-            (2, "Secondary education"),
-            (3, "Bachelor's degree"),
-            (4, "Master's degree"),
-            (5, "Doctorate or higher"),
+            (0, "学歴なし"),
+            (1, "初等教育"),
+            (2, "中等教育"),
+            (3, "学士号"),
+            (4, "修士号"),
+            (5, "博士号以上"),
         ], widget=widgets.RadioSelect())
 
 
