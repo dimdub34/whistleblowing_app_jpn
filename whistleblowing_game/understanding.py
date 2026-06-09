@@ -1,35 +1,35 @@
 def get_understanding(parameters):
     understanding = [
         dict(
-            question="What happens if the Red Player steals ECU from the passive group?",
+            question="赤プレイヤーがパッシブグループからECUを盗んだ場合、何が起こりますか？",
             propositions=[
-                f"The Red Player earns {parameters['STEALING_AMOUNT']} ECU, and the passive group "
-                f"loses {parameters['STEALING_LOSS']} ECU.",
-                f"The Red Player earns {parameters['STEALING_LOSS']} ECU, and the passive group "
-                f"loses {parameters['STEALING_AMOUNT']} ECU.",
-                f"The Red Player earns {parameters['STEALING_PENALTY']} ECU, and the passive group "
-                f"loses {parameters['REPORTING_COST']} ECU.",
+                f"赤プレイヤーは{parameters['STEALING_AMOUNT']} ECUを得て、パッシブグループは"
+                f"{parameters['STEALING_LOSS']} ECUを失います。",
+                f"赤プレイヤーは{parameters['STEALING_LOSS']} ECUを得て、パッシブグループは"
+                f"{parameters['STEALING_AMOUNT']} ECUを失います。",
+                f"赤プレイヤーは{parameters['STEALING_PENALTY']} ECUを得て、パッシブグループは"
+                f"{parameters['REPORTING_COST']} ECUを失います。",
             ],
             solution=0
         ),
         dict(
-            question="What happens if the Red Player has stolen ECU and the selected Blue Player reports the Red Player?",
+            question="赤プレイヤーがECUを盗み、選ばれた青プレイヤーが赤プレイヤーを報告した場合、何が起こりますか？",
             propositions=[
-                f"If the Red player is penalized, they pay a penalty of {parameters['STEALING_PENALTY']} ECU. "
-                f"The Blue Player pays a reporting cost of {parameters['REPORTING_COST']} ECU.",
-                f"If the Red player is penalized, they pay a penalty of {parameters['STEALING_PENALTY']} ECU. "
-                f"The Blue Player pays a reporting cost of {parameters['REPORTING_COST']} ECU and receives "
-                f"a reward of {parameters['REPORTING_REWARD']} ECU.",
-                "If the Red player is not penalized, the Blue Player pays no reporting cost.",
+                f"赤プレイヤーが罰せられた場合、{parameters['STEALING_PENALTY']} ECUの罰金を支払います。"
+                f"青プレイヤーは{parameters['REPORTING_COST']} ECUの報告コストを支払います。",
+                f"赤プレイヤーが罰せられた場合、{parameters['STEALING_PENALTY']} ECUの罰金を支払います。"
+                f"青プレイヤーは{parameters['REPORTING_COST']} ECUの報告コストを支払い、"
+                f"{parameters['REPORTING_REWARD']} ECUの報酬を受け取ります。",
+                赤プレイヤーが罰せられなかった場合、青プレイヤーは報告コストを支払いません。,
             ],
             solution=1 if parameters['reward'] else 0,
         ),
         dict(
-            question="What happens if one Blue Player reports the Red player and the other Blue player does not?",
+            question="一方の青プレイヤーが赤プレイヤーを報告し、もう一方が報告しなかった場合、何が起こりますか？",
             propositions=[
-                "Both decisions are implemented.",
-                "The Red Player is automatically penalized.",
-                "The computer program randomly selects one Blue Player's decision to implement.",
+                "両方の決定が実行されます。",
+                "赤プレイヤーは自動的に罰せられます。",
+                "コンピュータがランダムに一方の青プレイヤーの決定を選んで実行します。",
             ],
             solution=2
         ),
