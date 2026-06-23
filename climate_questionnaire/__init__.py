@@ -173,7 +173,7 @@ class Player(BasePlayer):
                 else:
                     self.payoff = cu(0)
                     txt_final += ("この行では、あなたは選択肢A（自分の意見を提供する）を選びました。"
-                                  したがって、あなたの意見は将来の参加者と共有され、報酬は {self.payoff} です。)
+                                  "したがって、あなたの意見は将来の参加者と共有され、報酬は {self.payoff} です。")
 
             else:
                 self.payoff = cu(0)
