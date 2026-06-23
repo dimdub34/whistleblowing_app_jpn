@@ -20,7 +20,7 @@ def get_understanding(parameters):
                 f"赤プレイヤーが罰せられた場合、{parameters['STEALING_PENALTY']} ECUの罰金を支払います。"
                 f"青プレイヤーは{parameters['REPORTING_COST']} ECUの報告コストを支払い、"
                 f"{parameters['REPORTING_REWARD']} ECUの報酬を受け取ります。",
-                赤プレイヤーが罰せられなかった場合、青プレイヤーは報告コストを支払いません。,
+                "赤プレイヤーが罰せられなかった場合、青プレイヤーは報告コストを支払いません。",
             ],
             solution=1 if parameters['reward'] else 0,
         ),
