@@ -31,7 +31,7 @@ def creating_session(subsession: Subsession):
     if app_name not in subsession.session.vars:
         subsession.session.vars[app_name] = dict()
 
-    amounts = [0.01, 0.25, 0.5, 1, 1.5, 2, 2.5]
+    amounts = [1, 25, 50, 100, 150, 200, 250]
     subsession.session.vars[app_name]["amounts"] = amounts.copy()
 
     players = subsession.get_players()
