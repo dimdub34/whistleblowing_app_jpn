@@ -106,6 +106,10 @@ class Player(BasePlayer):
     taking_decision = models.BooleanField(
         label="パッシブグループからECUを盗みますか？",
         widget=widgets.RadioSelectHorizontal,
+        choices=[
+        [True, "はい"],
+        [False, "いいえ"],
+    ],
     )
     estimation_reporting = models.IntegerField(
         label="青プレイヤーが赤プレイヤーを報告する可能性をどの程度だと思いますか：",
@@ -115,6 +119,10 @@ class Player(BasePlayer):
     reporting_decision = models.BooleanField(
         label="赤プレイヤーを報告しますか？",
         widget=widgets.RadioSelectHorizontal,
+        choices=[
+        [True, "はい"],
+        [False, "いいえ"],
+        ],
     )
     audit_draw = models.FloatField()
     audit = models.BooleanField()
