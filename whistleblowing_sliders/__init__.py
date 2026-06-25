@@ -65,18 +65,18 @@ class Player(BasePlayer):
 
     def set_txt_final(self):
         pluriel = lambda x: "s" if x > 1 else ""
-        txt_final = (f"You successfully placed {self.sliders_performance} slider{pluriel(self.sliders_performance)}.")
+        txt_final = (f"あなたは {self.sliders_performance} 個のスライダーを正しく配置しました。")
         txt_final += "<br>"
 
         if self.subsession.treatment == Config.INDIVIDUAL:
-            txt_final += (f"Your payoff is therefore equal to {self.sliders_performance} x {Config.PIECE_RATE} = "
+            txt_final += (f"したがって、あなたの報酬は {self.sliders_performance} × {Config.PIECE_RATE} = "
                    f"{self.payoff_ecu} ECU.")
 
         else:  # COOPERATION
-            txt_final += (f"The best scorer in your group successfully placed {self.group.sliders_performance_group} "
-                   f"slider{pluriel(self.group.sliders_performance_group)}. The payoff of each member of your "
-                   f"group is therefore equal to {self.group.sliders_performance_group} x "
-                   f"{Config.PIECE_RATE} = {self.payoff_ecu} ECU.")
+            txt_final += (f"あなたのグループで最も成績の良かった参加者は {self.group.sliders_performance_group} "
+                   f"個のスライダーを正しく配置しました。 したがって、グループ全員の報酬は "
+                   f"{self.group.sliders_performance_group} x "
+                   f"{Config.PIECE_RATE} = {self.payoff_ecu} ECU となります。")
 
         self.participant.vars[app_name] = dict(
             txt_final=txt_final,
