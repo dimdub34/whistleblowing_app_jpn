@@ -72,7 +72,7 @@ class Player(BasePlayer):
             (0, "忠実で誠実、献身的で信頼できる人"),
         ], widget=widgets.RadioSelect())
     friend_choice = models.IntegerField(
-        label="Who would you rather be friends with?",
+        label="あなたはどちらのタイプの人と友達になりたいですか？",
         choices=[
             (1, "他者に対して公平で正義を重んじ、家族や友人への影響に関係なく偏見なく判断する人"),
 
