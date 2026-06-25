@@ -69,19 +69,19 @@ class Player(BasePlayer):
 
     def set_txt_final(self):
         pluriel = lambda x: "s" if x > 1 else ""
-        txt_final = f"You found the right number of 1's in {self.counting_performance} grid{pluriel(self.counting_performance)}."
+        txt_final = f"あなたは {self.counting_performance} grid{pluriel(self.counting_performance)} で 1 の数を正しく数えました。"
         txt_final += "<br>"
         if self.subsession.treatment == Config.INDIVIDUAL:
-            txt_final += (f"Your payoff is therefore equal to "
-                          f"{self.counting_performance} x {Config.PIECE_RATE} = {self.payoff_ecu} ECU.")
+            txt_final += (f"したがって、あなたの報酬は "
+                          f"{self.counting_performance} × {Config.PIECE_RATE} = {self.payoff_ecu} ECU となります。")
 
         else:  # ccoperation
             txt_final += (
-                f"The best scorer in your group found the right number of 1's in "
-                f"{self.group.counting_performance_group} grid{pluriel(self.group.counting_performance_group)}. "
-                f"The payoff of each member of your "
-                f"group is therefore equal to {self.group.counting_performance_group} x "
-                f"{Config.PIECE_RATE} = {self.payoff_ecu} ECU."
+                f"あなたのグループで最も成績の良かった参加者は "
+                f"{self.group.counting_performance_group} grid{pluriel(self.group.counting_performance_group)} で "
+                f"1 の数を正しく数えました。"
+                f"したがって、グループ全員の報酬は {self.group.counting_performance_group} × "
+                f"{Config.PIECE_RATE} = {self.payoff_ecu} ECU となります。"
             )
         self.participant.vars[app_name] = dict(
             txt_final=txt_final,
