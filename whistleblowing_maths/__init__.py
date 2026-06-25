@@ -98,7 +98,7 @@ class MyPage(Page):
     def vars_for_template(player: Player):
         return dict(
             instructions_template_path="whistleblowing_maths/InstructionsTemplate.html",
-            instructions_template_title="Task 2 - Instructions",
+            instructions_template_title="タスク2 - 指示",
             effort_duration=seconds_to_minutes(Config.EFFORT_DURATION),
             **Config.get_parameters()
         )
