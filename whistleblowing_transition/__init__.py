@@ -40,8 +40,8 @@ class Player(BasePlayer):
     def set_txt_final(self):
         self.payoff = self.participant.vars.get(self.group.selected_effort_task_name, {}).get("payoff", 0)
         self.participant.payoff = self.payoff
-        txt_final = (f"Task {self.group.selected_effort_task_num} has been randomly selected by the computer program "
-                     f"to determine the payoff of your group.")
+        txt_final = (f"タスク {self.group.selected_effort_task_num} が、グループの報酬を決定するタスクとしてコンピュータ "
+                     f"によってランダムに選ばれました。") 
         txt_final += "<br>" + self.participant.vars.get(self.group.selected_effort_task_name, {}).get("txt_final", "")
 
         self.participant.vars["whistleblowing_effort"] = dict(
