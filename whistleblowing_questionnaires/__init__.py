@@ -133,7 +133,8 @@ class Questionnaire1(MyPage):
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
         if timeout_happened:
-            player.participant._is_bot = True
+            app_dict = player.participant.vars.setdefault(app_name, {})
+            app_dict["is_bot"] = True
             fields = [field for field in Questionnaire1.form_fields
                       if "fairness" in field or "loyalty" in field]
             for field in fields:
@@ -149,7 +150,8 @@ class Questionnaire2(MyPage):
     @staticmethod
     def before_next_page(player, timeout_happened):
         if timeout_happened:
-            player.participant._is_bot = True
+            app_dict = player.participant.vars.setdefault(app_name, {})
+            app_dict["is_bot"] = True
             player.share_friend_stranger = random.randint(0, 1000)
 
 
@@ -160,7 +162,8 @@ class Demographics(MyPage):
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
         if timeout_happened:
-            player.participant._is_bot = True
+            app_dict = player.participant.vars.setdefault(app_name, {})
+            app_dict["is_bot"] = True
             player.gender = random.choice(["M", "F", "NB", "NSP"])
             player.age = random.randint(16, 120)
             player.highest_diploma = random.randint(0, 5)

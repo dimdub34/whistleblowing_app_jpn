@@ -155,7 +155,8 @@ class CountingTask(MyPage):
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
         if timeout_happened and player.session.config.get("test", False):
-            player.participant._is_bot = True
+            app_dict = player.participant.vars.setdefault(app_name, {})
+            app_dict["is_bot"] = True
             player.counting_performance = random.randint(0, 100)
 
 
@@ -166,7 +167,8 @@ class CountingEstimation(MyPage):
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
         if timeout_happened:
-            player.participant._is_bot = True
+            app_dict = player.participant.vars.setdefault(app_name, {})
+            app_dict["is_bot"] = True
             player.counting_estimation = random.randint(0, 100)
 
 

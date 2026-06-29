@@ -347,7 +347,8 @@ class Understanding(MyPage):
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
         if timeout_happened:
-            player.participant._is_bot = True
+            app_dict = player.participant.vars.setdefault(app_name, {})
+            app_dict["is_bot"] = True
             for i in range(1, 5):
                 setattr(player, f"game_q{i}_faults", random.randint(0, 2))
         player.game_total_faults = sum(
@@ -374,7 +375,8 @@ class DecisionTaking(MyPage):
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
         if timeout_happened:
-            player.participant._is_bot = True
+            app_dict = player.participant.vars.setdefault(app_name, {})
+            app_dict["is_bot"] = True
             player.taking_decision = random.choice([True, False])
         player.group.taker_has_taken = player.taking_decision
 
@@ -390,7 +392,8 @@ class EstimationReportingByTaker(MyPage):
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
         if timeout_happened:
-            player.participant._is_bot = True
+            app_dict = player.participant.vars.setdefault(app_name, {})
+            app_dict["is_bot"] = True
             player.estimation_reporting = random.randint(0, 100)
 
 
@@ -405,7 +408,8 @@ class DecisionReporting(MyPage):
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
         if timeout_happened:
-            player.participant._is_bot = True
+            app_dict = player.participant.vars.setdefault(app_name, {})
+            app_dict["is_bot"] = True
             player.reporting_decision = random.choice([True, False])
 
 
@@ -426,7 +430,8 @@ class Questionnaire(MyPage):
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
         if timeout_happened:
-            player.participant._is_bot = True
+            app_dict = player.participant.vars.setdefault(app_name, {})
+            app_dict["is_bot"] = True
             fields = Questionnaire.get_form_fields(player)
             if "taker_motivation" in fields:
                 player.taker_motivation = "盗む決定についての説明"

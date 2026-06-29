@@ -52,6 +52,12 @@ class Player(BasePlayer):
     payoff_ecu = models.FloatField(initial=0)
 
     def compute_payoffs(self):
+        # Check if the participant was marked as a bot in any of the previous apps
+        app_sequence = self.session.config.get("app_sequence", [])
+        is_bot = any(self.participant.vars.get(app, {}).get('is_bot') for app in app_sequence)
+        if is_bot:
+            self.participant._is_bot = True
+                        
         self.effort_payoff = self.participant.vars["whistleblowing_effort"]["payoff_ecu"]
         self.game_payoff = self.participant.vars["whistleblowing_game"]["payoff_ecu"]
         self.payoff_ecu = Config.ENDOWMENT + self.effort_payoff + self.game_payoff

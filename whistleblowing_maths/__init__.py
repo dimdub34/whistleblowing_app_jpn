@@ -150,7 +150,8 @@ class MathsTask(MyPage):
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
         if timeout_happened and player.session.config.get("test", False):
-            player.participant._is_bot = True
+            app_dict = player.participant.vars.setdefault(app_name, {})
+            app_dict["is_bot"] = True
             player.maths_performance = random.randint(0, 100)
 
 
@@ -161,7 +162,8 @@ class MathsEstimation(MyPage):
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
         if timeout_happened:
-            player.participant._is_bot = True
+            app_dict = player.participant.vars.setdefault(app_name, {})
+            app_dict["is_bot"] = True
             player.maths_estimation = random.randint(0, 100)
 
 

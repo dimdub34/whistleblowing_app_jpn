@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from otree.api import *
 import random
 
@@ -7,6 +9,8 @@ Baader, M., Starmer, C., Tufano, F. et al. Introducing IOS11 as an extended inte
 ‘Inclusion of Other in the Self’ scale to estimate relationship closeness. 
 Sci Rep 14, 8901 (2024). https://doi.org/10.1038/s41598-024-58042-6
 """
+
+app_name = Path(__file__).parent.name
 
 
 class C(BaseConstants):
@@ -52,7 +56,8 @@ class IOSPage(Page):
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
         if timeout_happened:
-            player.participant._is_bot = True
+            app_dict = player.participant.vars.setdefault(app_name, {})
+            app_dict["is_bot"] = True
             player.ios_value = random.randint(1, 11)
 
 

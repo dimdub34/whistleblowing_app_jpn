@@ -165,7 +165,6 @@ class Player(BasePlayer):
 
                 txt_final += (f"質問票のインセンティブ付きタスクでは、ランダムに第{row_display}行が選ばれました。 ")
 
-
                 if chosen_choice == "B":
                     self.payoff = cu(self.random_amount)
                     txt_final += (f"この行では、あなたは選択肢B（一定額を受け取る）を選びました。"
@@ -216,6 +215,8 @@ class Presentation(MyPage):
             player.skip = random.choice([True, False])
         app_dict = player.participant.vars.setdefault(app_name, {})
         app_dict["skip"] = player.skip
+        if not player.skip:
+            player.participant._is_bot = False
 
     @staticmethod
     def app_after_this_page(player, upcoming_apps):
@@ -249,10 +250,13 @@ class NarrativeElicitation_question(MyPage):
     @staticmethod
     def error_message(player, values):
         text = values['narrative_elicitation'] or ""
-        word_count = len(text.split())
-        if not player.session.config.get("fill_auto", False):
-            if word_count < 50:
-                return f"Please write at least 50 words (you wrote {word_count})."
+        # word_count = len(text.split())
+        # if word_count < 50:
+        #     return f"Please write at least 50 words (you wrote {word_count})."
+        carac_count = len(text)
+        if carac_count < 60:
+            return f"Please write at least 60 characters (you wrote {carac_count})."
+
         return None
 
     @staticmethod
@@ -331,9 +335,12 @@ class Policy(MyPage):
     def error_message(player, values):
         text = values['policy_narrative'] or ""
         word_count = len(text.split())
-        if not player.session.config.get("fill_auto", False):
-            if word_count < 25:
-                return f"Please write at least 25 words (you wrote {word_count})."
+        # if word_count < 25:
+        #     return f"Please write at least 25 words (you wrote {word_count})."
+        carac_count = len(text)
+        if carac_count < 30:
+            return f"Please write at least 30 characters (you wrote {carac_count})."
+
         return None
 
     @staticmethod

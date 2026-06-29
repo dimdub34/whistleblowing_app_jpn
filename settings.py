@@ -53,4 +53,14 @@ SESSION_CONFIGS = [
         treatment='cooperation',
         reward=True
     ),
+    dict(
+        name="climate_questionnaire",
+        display_name="Climate Questionnaire",
+        app_sequence=["climate_questionnaire", 'whistleblowing_welcome'],
+        num_demo_participants=3,
+        country="US",
+        treatment='cooperation',
+        reward=True
+
+    )
 ]
