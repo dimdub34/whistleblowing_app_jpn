@@ -255,7 +255,7 @@ class NarrativeElicitation_question(MyPage):
         #     return f"Please write at least 50 words (you wrote {word_count})."
         carac_count = len(text)
         if carac_count < 60:
-            return f"Please write at least 60 characters (you wrote {carac_count})."
+            return f"60文字以上で記述してください（現在の文字数は {carac_count} です）。"
 
         return None
 
@@ -339,7 +339,7 @@ class Policy(MyPage):
         #     return f"Please write at least 25 words (you wrote {word_count})."
         carac_count = len(text)
         if carac_count < 30:
-            return f"Please write at least 30 characters (you wrote {carac_count})."
+            return f"30文字以上で記述してください（現在の文字数は {carac_count} です）。"
 
         return None
 
